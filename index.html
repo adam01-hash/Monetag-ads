@@ -3,17 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
-    <script src="//whephiwums.com/sdk.js" data-zone="8678694" data-sdk="show_8678694"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Telegram Mini App - Monetag Ads</title>
+
+    <!-- Monetag Ad Script -->
+    <script src='//whephiwums.com/sdk.js' data-zone='8678694' data-sdk='show_8678694'></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Telegram Mini App</h1>
-    
-    <button onclick="showRewardedAd()">Show Rewarded Ad</button>
-    <button onclick="showPopupAd()">Show Popup Ad</button>
-    <button onclick="showInAppAd()">Show In-App Ad</button>
 
-    <script src="script.js"></script>
+    <h2>Telegram Mini App - Monetag Ads</h2>
+
+    <button onclick="showRewardedInterstitial()">Show Rewarded Interstitial</button>
+    <button onclick="showRewardedPopup()">Show Rewarded Popup</button>
+    <button onclick="showInAppInterstitial()">Show In-App Interstitial</button>
+
+    <script>
+        // Function to show Rewarded Interstitial Ad
+        function showRewardedInterstitial() {
+            if (typeof show_8678694 === "function") {
+                show_8678694()
+                    .then(() => {
+                        alert("You have seen an ad! Reward granted.");
+                    })
+                    .catch(error => console.error("Rewarded Interstitial Error:", error));
+            } else {
+                console.error("Rewarded Interstitial Ad Function Not Found");
+            }
+        }
+
+        // Function to show Rewarded Popup Ad
+        function showRewardedPopup() {
+            if (typeof show_8678694 === "function") {
+                show_8678694("pop")
+                    .then(() => {
+                        alert("You have seen a popup ad!");
+                    })
+                    .catch(error => console.error("Rewarded Popup Error:", error));
+            } else {
+                console.error("Rewarded Popup Ad Function Not Found");
+            }
+        }
+
+        // Function to show In-App Interstitial Ad
+        function showInAppInterstitial() {
+            if (typeof show_8678694 === "function") {
+                show_8678694({
+                    type: "inApp",
+                    inAppSettings: {
+                        frequency: 2,   
+                        capping: 0.1,   
+                        interval: 30,   
+                        timeout: 5,     
+                        everyPage: false
+                    }
+                })
+                .then(() => console.log("In-App Interstitial Ad Triggered"))
+                .catch(error => console.error("In-App Interstitial Error:", error));
+            } else {
+                console.error("In-App Interstitial Ad Function Not Found");
+            }
+        }
+    </script>
+
 </body>
 </html>
