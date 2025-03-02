@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App - Monetag Ads</title>
+    <title>Telegram Mini App with Ads</title>
 
     <!-- Monetag Ad Script -->
     <script src='//whephiwums.com/sdk.js' data-zone='8678694' data-sdk='show_8678694'></script>
@@ -12,16 +12,18 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
+            padding: 20px;
         }
         button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
             padding: 10px;
             font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border: none;
             background-color: #007bff;
             color: white;
+            border: none;
+            cursor: pointer;
             border-radius: 5px;
         }
         button:hover {
@@ -31,7 +33,7 @@
 </head>
 <body>
 
-    <h2>Telegram Mini App - Monetag Ads</h2>
+    <h1>Telegram Mini App - Ads Integration</h1>
 
     <button onclick="showRewardedInterstitial()">Show Rewarded Interstitial</button>
     <button onclick="showRewardedPopup()">Show Rewarded Popup</button>
